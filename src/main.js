@@ -1,15 +1,16 @@
-require('./first.js');
+require('./buttons/first.js');
+
+function handleButton(name) {
+  require.ensure([], function() {
+    var handler = require('./buttons/' + name + '.js');
+    handler();
+  });
+}
 
 window.firstButton = function() {
-  require.ensure([], function() {
-    var first = require('./first.js');
-    first();
-  });
+  handleButton('first');
 };
 
 window.secondButton = function() {
-  require.ensure([], function() {
-    var second = require('./second.js');
-    second();
-  });
+  handleButton('second');
 };

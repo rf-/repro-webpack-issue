@@ -96,18 +96,19 @@
 
 	__webpack_require__(1);
 
+	function handleButton(name) {
+	  __webpack_require__.e/* nsure */(1, function() {
+	    var handler = __webpack_require__(2)("./" + name + '.js');
+	    handler();
+	  });
+	}
+
 	window.firstButton = function() {
-	  !/* require.ensure */(function() {
-	    var first = __webpack_require__(1);
-	    first();
-	  }(__webpack_require__));
+	  handleButton('first');
 	};
 
 	window.secondButton = function() {
-	  __webpack_require__.e/* nsure */(1, function() {
-	    var second = __webpack_require__(2);
-	    second();
-	  });
+	  handleButton('second');
 	};
 
 
